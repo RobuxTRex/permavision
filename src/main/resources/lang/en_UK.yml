@@ -1,0 +1,12 @@
+# I REFUSE TO ADD en_US YOU AMERICANS!!!!!!!!
+# bri'ish > americans (sorry americans!)
+
+# PLACEHOLDERS
+# %PLAYER% - The player the message/action is being directed to.
+
+prefix: '&f[&a&lPerma&9&lVision&f]'
+
+reloadSuccess: '&aSuccessfully reloaded!'
+joinMessage: '&6You currently have permanent effects! Enquire a server administrator if you would like to have your permanent effect revoked. (NIGHT_VISION)'
+addedPlayerEffect: '&aSuccessfully granted the selected player(s) the effect permanently!'
+revokedPlayerEffect: '&cRevoked the selected player(s) effect!'

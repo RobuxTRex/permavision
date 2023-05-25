@@ -1,0 +1,11 @@
+main: co.uk.robuxtrex.App
+name: permavision
+version: 1.0
+api-version: 1.19
+author: RobuxTRex
+commands:
+  permavision:
+    description: All PermaVision commands used to manage the plugin!
+    usage: /permavision
+    aliases: [vision, pv]
+    permission: permavision
