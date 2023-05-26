@@ -29,7 +29,6 @@ public class Commands implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) return false;
-        if (args == null || args[0] == null) return false;
 
         Player player = (Player) sender; 
 
@@ -41,10 +40,18 @@ public class Commands implements CommandExecutor {
         String reloadSuccessMessage = ParseColourCode(languageConfig.getString("reloadSuccess"));
         String addedPlayerEffectMessage = ParseColourCode(languageConfig.getString("addedPlayerEffect"));
         String revokedPlayerEffectMessage = ParseColourCode(languageConfig.getString("revokedPlayerEffect"));
+        String playerRevokedEffectMessage = ParseColourCode(languageConfig.getString("playerRevokedEffect"));
+        String helpOneMessage = ParseColourCode(languageConfig.getString("helpOne"));
+
+        if(args.length == 0 || args == null || args[0] == "") player.sendMessage(ParsePlaceHolder(helpOneMessage, player));
 
         List<String> players = config.getStringList("players");
 
         switch (args[0]) {
+            case "help":
+                player.sendMessage(ParsePlaceHolder(helpOneMessage, player));
+
+                break;
             case "reload":
                 if (args.length != 1) return false; // No arguments!
                 
@@ -69,21 +76,15 @@ public class Commands implements CommandExecutor {
             case "revoke":
                 if (args.length != 2) return false; // Arguments: Player
 
-                int index = 0;
                 players = config.getStringList("players");
-        
-                for(String plr : players) {
-                    if(plr == player.getName()) {
-                        players.remove(index++);
-                        player.removePotionEffect(PotionEffectType.NIGHT_VISION);
-                    }
-                }
-
+                players.remove(args[1]);
                 config.set("players", players);
                 plugin.saveConfig();
                 plugin.reloadConfig();
+                player.removePotionEffect(PotionEffectType.NIGHT_VISION);
 
                 player.sendMessage(ParsePlaceHolder(messagePrefix + " " + revokedPlayerEffectMessage, player));
+                player.sendMessage(ParsePlaceHolder(messagePrefix + " " + playerRevokedEffectMessage, player));
 
                 break;
         }
