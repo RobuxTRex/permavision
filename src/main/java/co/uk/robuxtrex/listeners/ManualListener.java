@@ -23,6 +23,7 @@ public class ManualListener extends BukkitRunnable {
     @Override
     public void run()
     {
+        App.getInstance().getLogger().info("hello");
         final FileConfiguration config = App.getInstance().getConfig();
         List<String> players = config.getStringList("players");
     

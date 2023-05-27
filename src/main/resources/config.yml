@@ -13,7 +13,7 @@ advertisement: false
 debug: false
 # How often should the plugin check selected players (whom are defined in the player list) for effects? Useful if other plugins are overriding the effects. 0 for disable (player must die/relog before having the effect given back)
 # DO NOT SET THIS BELOW 1 (EXCEPT FOR 0) AS IT MAY LAG OUT THE SERVER! PLEASE ALSO DO NOT SET THIS LOW IF YOU HAVE MANY PLAYERS ON THE EFFECT LIST!
-# delay: 100
+delay: 100
 # What language should the plugin be? Current options are all the file names in the "lang" folder. en_UK is the same as EN-US with British spelling. THIS IS CaSe SeNsItIvE!
 language: en_UK
 
