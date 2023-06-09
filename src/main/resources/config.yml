@@ -5,21 +5,23 @@
 
 ## Currently, the plugin only has support for Night Vision as an effect, that's it!
 
-# Toggle whether the plugin is currently enabled or not. Perfect if you want the plugin out of your way, saving your server resources when you don't need it!e
+# Toggle whether the plugin is currently enabled or not. Perfect if you want the plugin out of your way, saving your server resources when you don't need it!
 enabled: true
+# Whether to fetch for updates. NOTE: This will generate an exception in the console. It is safe to ignore.
+update: false
 # Although annoying and disabled by default, you can help promote the plugin via. an advertisement sent locally to a player every time they join the server!
-advertisement: false 
+advertisement: false
 # Debug mode used for testing. This will literally spam your console. DO NOT ENABLE!
 debug: false
 # How often should the plugin check selected players (whom are defined in the player list) for effects? Useful if other plugins are overriding the effects. 0 for disable (player must die/relog before having the effect given back)
 # DO NOT SET THIS BELOW 1 (EXCEPT FOR 0) AS IT MAY LAG OUT THE SERVER! PLEASE ALSO DO NOT SET THIS LOW IF YOU HAVE MANY PLAYERS ON THE EFFECT LIST!
 delay: 100
-# What language should the plugin be? Current options are all the file names in the "lang" folder. en_UK is the same as EN-US with British spelling. THIS IS CaSe SeNsItIvE!
+# What language should the plugin be? Current options are as follows: de (German), es (Spanish), fr (French), en_UK (British English), amogus_IMPOSTER (really weird sussy language idk how it got there i promiseee)
 language: en_UK
 
 players: # List of all players that should have Night Vision. If empty, all online users will have Night Vision. All effects are permanent on this current version.
 - "ExampleJavaUser" # Example of a Java user with the effect applied.
 - ".ExampleBedrockUser" # Example of a Bedrock user with the effect applied (assumes you are using GeyserMC and the prefix is ".")
 
-
-version: "1.0" # DO NOT MODIFY THIS VALUE OR ELSE YOU WILL NOT BE PROVIDED SUPPORT IF YOU BREAK THE PLUGIN!
+version: "1.3" # DO NOT MODIFY THIS VALUE OR ELSE YOU WILL NOT BE PROVIDED SUPPORT IF YOU BREAK THE PLUGIN!
+class: "1.3(J1.20)-d294567466222f9b89abef0b00256775d5c98e672146553ad685ce3bf1182e3e" # DO NOT MODIFY EITHER!!

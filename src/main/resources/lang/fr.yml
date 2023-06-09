@@ -1,0 +1,22 @@
+# do you like bread?
+
+# PLACEHOLDERS
+# %PLAYER% - The player the message/action is being directed to.
+# %VERSION% - The version of the plugin.
+# %ARGSPROVIDED% - The amount of arguments the player provided in the command (invalidArgs)
+
+prefix: '&f[&a&lPerma&9&lVision&f]'
+
+reloadSuccess: '&aRechargé avec succès!'
+joinMessage: '&6Vous avez actuellement des effets permanents! Renseignez-vous auprès d'un administrateur de serveur si vous souhaitez que votre effet permanent soit révoqué. (VISION NOCTURNE)'
+addedPlayerEffect: '&aVous avez accordé avec succès l'effet permanent au(x) joueur(s) sélectionné(s)!'
+revokedPlayerEffect: '&cRévocation de l'effet joueur(s) sélectionné(s)!'
+playerRevokedEffect: '&cUn ou plusieurs de vos effets ont été révoqués par un administrateur du serveur.'
+invalidArgs: '&cVous n''avez pas fourni un nombre valide d''arguments! Fourni: %ARGSPROVIDED%.'
+helpOne: | 
+  &a&lAide: 
+  &c&l- /pv reload &arechargera le fichier de configuration du plug-in. 
+  &c&l- /pv add &adonnera au joueur sélectionné la vision nocturne. 
+  &c&l- /pv annuler &aannulera la vision nocturne du joueur sélectionné.
+version: '&aVersion %VERSION%'
+unknownCommand: '&cVous avez fourni à PermaVision une commande invalide! Veuillez utiliser /pv pour obtenir de l''aide!'

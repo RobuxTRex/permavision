@@ -3,6 +3,8 @@
 
 # PLACEHOLDERS
 # %PLAYER% - The player the message/action is being directed to.
+# %VERSION% - The version of the plugin.
+# %ARGSPROVIDED% - The amount of arguments the player provided in the command (invalidArgs)
 
 prefix: '&f[&a&lPerma&9&lVision&f]'
 
@@ -11,4 +13,11 @@ joinMessage: '&6You currently have permanent effects! Enquire a server administr
 addedPlayerEffect: '&aSuccessfully granted the selected player(s) the effect permanently!'
 revokedPlayerEffect: '&cRevoked the selected player(s) effect!'
 playerRevokedEffect: '&cOne or more of your effects have been revoked by a server administrator.'
-helpOne: '&a&lHelp: &c&l- /pv reload &awill reload the plugin configuration file. &c&l- /pv add &awill give the selected player night vision. &c&l- /pv revoke &awill revoke the selected player night vision.'
+invalidArgs: '&cYou have not provided a valid amount of arguments! Provided: %ARGSPROVIDED%.'
+helpOne: | 
+  &a&lHelp: 
+  &c&l- /pv reload &awill reload the plugin configuration file. 
+  &c&l- /pv add &awill give the selected player night vision. 
+  &c&l- /pv revoke &awill revoke the selected player night vision.
+version: '&aVersion %VERSION%'
+unknownCommand: '&cYou have provided PermaVision with an invalid command! Please use /pv for help!'

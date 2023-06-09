@@ -1,0 +1,22 @@
+# german!
+
+# PLACEHOLDERS
+# %PLAYER% - The player the message/action is being directed to.
+# %VERSION% - The version of the plugin.
+# %ARGSPROVIDED% - The amount of arguments the player provided in the command (invalidArgs)
+
+prefix: '&f[&a&lPerma&9&lVision&f]'
+
+reloadSuccess: '&aErfolgreich neu geladen!'
+joinMessage: '&6Sie haben derzeit dauerhafte Effekte! Erkundigen Sie sich bei einem Serveradministrator, ob Sie Ihren dauerhaften Effekt widerrufen möchten. (NACHTSICHT)'
+addedPlayerEffect: '&aDen ausgewählten Spielern wurde der Effekt dauerhaft gewährt!'
+revokedPlayerEffect: '&cDer/die ausgewählte(n) Spielereffekt wurde widerrufen!'
+playerRevokedEffect: '&cEiner oder mehrere Ihrer Effekte wurden von einem Serveradministrator widerrufen.'
+invalidArgs: '&cSie haben keine gültige Anzahl an Argumenten angegeben! Bereitgestellt: %ARGSPROVIDED%.'
+helpOne: |
+  &a&lHilfe: 
+  &c&l- /pv reload &alädt die Plugin-Konfigurationsdatei neu. 
+  &c&l- /pv add &agibt dem ausgewählten Spieler Nachtsicht. 
+  &c&l- /pv revoke &awird die Nachtsicht des ausgewählten Spielers widerrufen.
+version: '&aAusführung %VERSION%';
+unknownCommand: '&cSie haben PermaVision einen ungültigen Befehl bereitgestellt! Bitte verwenden Sie /pv für Hilfe!'

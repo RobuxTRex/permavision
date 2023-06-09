@@ -7,3 +7,11 @@ joinMessage: '&6SUSSY BAKA, ya currently have permanent effects. you could die b
 addedPlayerEffect: '&ai made da player have the sussy effect of effect forever'
 revokedPlayerEffect: '&ci removed the sussy bakas effect a effect so da sussy imposta cannot kill em'
 playerRevokedEffect: '&cone or more of your sussy baka effects have taken by a server administrator. oh no!'
+invalidArgs: '&cthe sussy command needs more things to run! you gave it %ARGSPROVIDED% tho'
+helpOne: | 
+  &a&lsussy baka help: 
+  &c&l- /pv reload &awill reload the plugin configuration file. 
+  &c&l- /pv add &awill give the selected player night vision. 
+  &c&l- /pv revoke &awill revoke the selected player night vision.
+version: '&asussy version number is %VERSION%'
+unknownCommand: '&csurry, dont really know that command!'

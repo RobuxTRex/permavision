@@ -1,6 +1,7 @@
 package co.uk.robuxtrex;
 
 import co.uk.robuxtrex.App;
+import co.uk.robuxtrex.listeners.UpdateChecker;
 
 import java.io.InputStreamReader;
 import java.util.List;
@@ -22,8 +23,11 @@ public class Commands implements CommandExecutor {
         return string.replaceAll("&", "§") + "§r";
     }
 
-    public String ParsePlaceHolder(String string, Player player) {
-        return string.replaceAll("%PLAYER%", player.getName());
+    public String ParsePlaceHolder(String string, Player player, Plugin plugin, Integer ProvidedLength) {
+        String returnValue = string.replaceAll("%VERSION%", plugin.getDescription().getVersion());
+        returnValue = returnValue.replaceAll("%PLAYER%", player.getName());
+        returnValue = returnValue.replaceAll("%ARGSPROVIDED%", "" + ProvidedLength);
+        return returnValue;
     }
 
     @Override
@@ -42,26 +46,29 @@ public class Commands implements CommandExecutor {
         String revokedPlayerEffectMessage = ParseColourCode(languageConfig.getString("revokedPlayerEffect"));
         String playerRevokedEffectMessage = ParseColourCode(languageConfig.getString("playerRevokedEffect"));
         String helpOneMessage = ParseColourCode(languageConfig.getString("helpOne"));
+        String invalidArgs = ParseColourCode(languageConfig.getString("invalidArgs"));
+        String unknownCommand = ParseColourCode(languageConfig.getString("unknownCommand"));
 
-        if(args.length == 0 || args == null || args[0] == "") player.sendMessage(ParsePlaceHolder(helpOneMessage, player));
-
+        if(args.length == 0 || args == null || args[0] == "") { player.sendMessage(ParsePlaceHolder(helpOneMessage, player, plugin, 0)); return true; }
         List<String> players = config.getStringList("players");
+
+        Boolean validCommand = false;
 
         switch (args[0]) {
             case "help":
-                player.sendMessage(ParsePlaceHolder(helpOneMessage, player));
+                player.sendMessage(ParsePlaceHolder(helpOneMessage, player, plugin, 0));
 
+                validCommand = true;
                 break;
             case "reload":
-                if (args.length != 1) return false; // No arguments!
-                
                 plugin.reloadConfig();
 
-                player.sendMessage(ParsePlaceHolder(messagePrefix + " " + reloadSuccessMessage, player));
+                player.sendMessage(ParsePlaceHolder(messagePrefix + " " + reloadSuccessMessage, player, plugin, 0));
 
+                validCommand = true;
                 break;
             case "add":
-                if (args.length != 2) return false; // Arguments: Player
+                if (args.length != 2) player.sendMessage(ParsePlaceHolder(invalidArgs, player, plugin, args.length)); // Arguments: Player
 
                 players = config.getStringList("players");
                 players.add(args[1]);
@@ -70,11 +77,12 @@ public class Commands implements CommandExecutor {
                 plugin.reloadConfig();
                 player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, Integer.MAX_VALUE, 255));
                 
-                player.sendMessage(ParsePlaceHolder(messagePrefix + " " + addedPlayerEffectMessage, player));
-
+                player.sendMessage(ParsePlaceHolder(messagePrefix + " " + addedPlayerEffectMessage, player, plugin, 0));
+                
+                validCommand = true;
                 break;
             case "revoke":
-                if (args.length != 2) return false; // Arguments: Player
+                if (args.length != 2) player.sendMessage(ParsePlaceHolder(invalidArgs, player, plugin, args.length)); // Arguments: Player
 
                 players = config.getStringList("players");
                 players.remove(args[1]);
@@ -83,11 +91,18 @@ public class Commands implements CommandExecutor {
                 plugin.reloadConfig();
                 player.removePotionEffect(PotionEffectType.NIGHT_VISION);
 
-                player.sendMessage(ParsePlaceHolder(messagePrefix + " " + revokedPlayerEffectMessage, player));
-                player.sendMessage(ParsePlaceHolder(messagePrefix + " " + playerRevokedEffectMessage, player));
-
+                player.sendMessage(ParsePlaceHolder(messagePrefix + " " + revokedPlayerEffectMessage, player, plugin, 0));
+                player.sendMessage(ParsePlaceHolder(messagePrefix + " " + playerRevokedEffectMessage, player, plugin, 0));
+                
+                validCommand = true;
                 break;
         }
+
+        if(!validCommand)
+        {
+            player.sendMessage(ParsePlaceHolder(messagePrefix + " " + unknownCommand, player, plugin, 0));
+        }
+
         return true;
     }
 }
